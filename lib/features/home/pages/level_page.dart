@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/utils.dart';
 import '../../../core/widgets/bg_image.dart';
+import '../../quiz/bloc/quiz_bloc.dart';
 import '../widgets/arrow_back_button.dart';
 
 class LevelPage extends StatelessWidget {
@@ -25,7 +27,7 @@ class LevelPage extends StatelessWidget {
             Column(
               children: [
                 const SizedBox(height: 58),
-                const ArrowBackButton(coins: 150),
+                const ArrowBackButton(),
                 const SizedBox(height: 27),
                 Container(
                   height: 45,
@@ -46,40 +48,44 @@ class LevelPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 15),
-                Wrap(
-                  runSpacing: 15,
-                  spacing: 15,
-                  children: [
-                    _LevelButton(
-                      level: 1,
-                      price: 100,
-                      current: getCurrent(1),
-                    ),
-                    _LevelButton(
-                      level: 2,
-                      price: 200,
-                      locked: getLocked(2),
-                      current: getCurrent(2),
-                    ),
-                    _LevelButton(
-                      level: 3,
-                      price: 250,
-                      locked: getLocked(3),
-                      current: getCurrent(3),
-                    ),
-                    _LevelButton(
-                      level: 4,
-                      price: 300,
-                      locked: getLocked(4),
-                      current: getCurrent(4),
-                    ),
-                    _LevelButton(
-                      level: 5,
-                      price: 350,
-                      locked: getLocked(5),
-                      current: getCurrent(5),
-                    ),
-                  ],
+                BlocBuilder<QuizBloc, QuizState>(
+                  builder: (context, state) {
+                    return Wrap(
+                      runSpacing: 15,
+                      spacing: 15,
+                      children: [
+                        _LevelButton(
+                          level: 1,
+                          price: 100,
+                          current: getCurrent(1),
+                        ),
+                        _LevelButton(
+                          level: 2,
+                          price: 200,
+                          locked: getLocked(2),
+                          current: getCurrent(2),
+                        ),
+                        _LevelButton(
+                          level: 3,
+                          price: 250,
+                          locked: getLocked(3),
+                          current: getCurrent(3),
+                        ),
+                        _LevelButton(
+                          level: 4,
+                          price: 300,
+                          locked: getLocked(4),
+                          current: getCurrent(4),
+                        ),
+                        _LevelButton(
+                          level: 5,
+                          price: 350,
+                          locked: getLocked(5),
+                          current: getCurrent(5),
+                        ),
+                      ],
+                    );
+                  },
                 ),
               ],
             ),
@@ -171,7 +177,6 @@ class _LevelButton extends StatelessWidget {
                   ),
                   child: Container(
                     decoration: BoxDecoration(
-                      // color: Colors.grey,
                       borderRadius: BorderRadius.circular(41),
                     ),
                     child: CupertinoButton(

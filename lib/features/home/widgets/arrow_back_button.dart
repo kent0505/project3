@@ -6,9 +6,7 @@ import '../../../core/config/app_colors.dart';
 import 'coins_count.dart';
 
 class ArrowBackButton extends StatelessWidget {
-  const ArrowBackButton({super.key, required this.coins});
-
-  final int coins;
+  const ArrowBackButton({super.key});
 
   @override
   Widget build(BuildContext context) {

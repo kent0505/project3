@@ -29,14 +29,16 @@ class _QuizPageState extends State<QuizPage> {
     color2 = const Color(0xff2D034F);
     color3 = const Color(0xff2D034F);
     color4 = const Color(0xff2D034F);
-    if (!last) {
+    if (last) {
+      context.pop();
+    } else {
       canTap = true;
     }
   }
 
-  void onTapAnswer(int id, Answer answer) {
-    Color color = const Color(0xffB00000);
+  void onTapAnswer(int id, Answer answer) async {
     if (canTap) {
+      Color color = const Color(0xffB00000);
       if (answer.correct) color = const Color(0xff17930A);
       setState(() {
         if (id == 1) color1 = color;
@@ -44,12 +46,9 @@ class _QuizPageState extends State<QuizPage> {
         if (id == 3) color3 = color;
         if (id == 4) color4 = color;
       });
-      Future.delayed(
-        const Duration(seconds: 1),
-        () {
-          context.read<QuizBloc>().add(NextQuizEvent());
-        },
-      );
+      Future.delayed(const Duration(seconds: 1), () {
+        context.read<QuizBloc>().add(NextQuizEvent());
+      });
     }
     canTap = false;
   }
@@ -72,7 +71,6 @@ class _QuizPageState extends State<QuizPage> {
 
             if (state is FinishedQuizState) {
               setDefault(true);
-              context.pop();
             }
           },
           child: BlocBuilder<QuizBloc, QuizState>(
@@ -84,7 +82,7 @@ class _QuizPageState extends State<QuizPage> {
                     Column(
                       children: [
                         const SizedBox(height: 58),
-                        const ArrowBackButton(coins: 150),
+                        const ArrowBackButton(),
                         const SizedBox(height: 18),
                         _LevelCard(level: widget.level),
                         _QuestionCard(quiz: state.quiz),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../core/utils.dart';
+import '../../quiz/bloc/quiz_bloc.dart';
 
 class CoinsCount extends StatelessWidget {
   const CoinsCount({super.key});
@@ -26,13 +28,17 @@ class CoinsCount extends StatelessWidget {
               child: Row(
                 children: [
                   const Spacer(),
-                  Text(
-                    coins.toString(),
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w800,
-                    ),
+                  BlocBuilder<QuizBloc, QuizState>(
+                    builder: (context, state) {
+                      return Text(
+                        '$coins',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),

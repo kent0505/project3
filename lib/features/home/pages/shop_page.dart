@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:go_router/go_router.dart';
 
-import '../../../core/utils.dart';
 import '../widgets/coins_count.dart';
 import '../widgets/shop_rules.dart';
 
@@ -48,19 +46,17 @@ class ShopPage extends StatelessWidget {
                 price: 250,
                 onPressed: () {},
               ),
-              ShopSecItem(
-                sec: 25,
-                price: 280,
-                onPressed: () {},
+              ShopBgItem(
+                bgID: 1,
+                price: 300,
+                bought: true,
+                onPressed: () async {},
               ),
               ShopBgItem(
                 bgID: 2,
                 price: 300,
-                onPressed: () async {
-                  await setBg(2).then((value) {
-                    context.go('/home');
-                  });
-                },
+                bought: false,
+                onPressed: () async {},
               ),
             ],
           ),
@@ -71,29 +67,20 @@ class ShopPage extends StatelessWidget {
               ShopBgItem(
                 bgID: 3,
                 price: 350,
-                onPressed: () async {
-                  await setBg(3).then((value) {
-                    context.go('/home');
-                  });
-                },
+                bought: false,
+                onPressed: () async {},
               ),
               ShopBgItem(
                 bgID: 4,
                 price: 450,
-                onPressed: () async {
-                  await setBg(4).then((value) {
-                    context.go('/home');
-                  });
-                },
+                bought: false,
+                onPressed: () async {},
               ),
               ShopBgItem(
                 bgID: 5,
                 price: 500,
-                onPressed: () async {
-                  await setBg(5).then((value) {
-                    context.go('/home');
-                  });
-                },
+                bought: false,
+                onPressed: () async {},
               ),
             ],
           ),
@@ -154,11 +141,13 @@ class ShopBgItem extends StatelessWidget {
     super.key,
     required this.bgID,
     required this.price,
+    required this.bought,
     required this.onPressed,
   });
 
   final int bgID;
   final int price;
+  final bool bought;
   final void Function() onPressed;
 
   @override
@@ -181,7 +170,9 @@ class ShopBgItem extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 2),
-        SvgPicture.asset('assets/icons/${price}coins.svg'),
+        bought
+            ? const SizedBox(height: 26)
+            : SvgPicture.asset('assets/icons/${price}coins.svg'),
       ],
     );
   }
