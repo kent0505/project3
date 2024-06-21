@@ -20,12 +20,13 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
           sortedQuizes.add(quiz);
         }
       }
-      emit(LoadedQuizState(quiz: sortedQuizes[id]));
+      sortedQuizes.shuffle();
+      emit(LoadedQuizState(quiz: sortedQuizes[id], id: id + 1));
     });
 
     on<NextQuizEvent>((event, emit) {
       id = id + 1;
-      if (id <= 7) emit(LoadedQuizState(quiz: sortedQuizes[id]));
+      if (id <= 7) emit(LoadedQuizState(quiz: sortedQuizes[id], id: id + 1));
       if (id == 8) emit(FinishedQuizState());
     });
   }

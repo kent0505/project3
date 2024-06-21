@@ -39,6 +39,7 @@ class _QuizPageState extends State<QuizPage> {
             timer.cancel();
             context.read<QuizBloc>().add(NextQuizEvent());
             _start = timerSec;
+            changeCoins(false);
             startTimer();
           });
         } else {
@@ -58,7 +59,6 @@ class _QuizPageState extends State<QuizPage> {
     color4 = const Color(0xff2D034F);
     if (last) {
       context.pop();
-      await saveCoins();
     } else {
       canTap = true;
     }
@@ -74,7 +74,7 @@ class _QuizPageState extends State<QuizPage> {
         if (id == 3) color3 = color;
         if (id == 4) color4 = color;
       });
-      addCoins(answer.correct);
+      changeCoins(answer.correct);
       Future.delayed(const Duration(seconds: 1), () {
         _timer.cancel();
         _start = timerSec;
@@ -125,6 +125,7 @@ class _QuizPageState extends State<QuizPage> {
                       _LevelCard(level: widget.level),
                       _QuestionCard(
                         quiz: state.quiz,
+                        id: state.id,
                         sec: _start,
                       ),
                       const SizedBox(height: 70),
@@ -217,10 +218,12 @@ class _LevelCard extends StatelessWidget {
 class _QuestionCard extends StatelessWidget {
   const _QuestionCard({
     required this.quiz,
+    required this.id,
     required this.sec,
   });
 
   final Quiz quiz;
+  final int id;
   final int sec;
 
   @override
@@ -249,7 +252,7 @@ class _QuestionCard extends StatelessWidget {
           Row(
             children: [
               Text(
-                '${quiz.id} / 8',
+                '$id / 8',
                 style: const TextStyle(
                   color: Color(0xffFFE500),
                   fontSize: 15,

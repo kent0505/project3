@@ -179,7 +179,7 @@ class _LevelButton extends StatelessWidget {
                     ),
                     child: CupertinoButton(
                       onPressed: () {
-                        context.push('/quiz', extra: level);
+                        context.push('/instruct', extra: level);
                       },
                       padding: EdgeInsets.zero,
                       child: SizedBox(

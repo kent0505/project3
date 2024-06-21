@@ -6,7 +6,11 @@ class QuizInitial extends QuizState {}
 
 class LoadedQuizState extends QuizState {
   final Quiz quiz;
-  LoadedQuizState({required this.quiz});
+  final int id;
+  LoadedQuizState({
+    required this.quiz,
+    required this.id,
+  });
 }
 
 class FinishedQuizState extends QuizState {}

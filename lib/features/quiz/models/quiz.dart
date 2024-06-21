@@ -1,5 +1,4 @@
 class Quiz {
-  final int id;
   final int level;
   final String question;
   final Answer answer1;
@@ -8,7 +7,6 @@ class Quiz {
   final Answer answer4;
 
   Quiz({
-    required this.id,
     required this.level,
     required this.question,
     required this.answer1,
@@ -30,7 +28,6 @@ class Answer {
 
 List<Quiz> quizes = [
   Quiz(
-    id: 1,
     level: 1,
     question: 'Which gas is the main component of Earth\'s atmosphere?',
     answer1: Answer(title: 'Oxygen', correct: false),
@@ -39,7 +36,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Carbon Dioxide', correct: false),
   ),
   Quiz(
-    id: 2,
     level: 1,
     question: 'What is the capital of France?',
     answer1: Answer(title: 'Rome', correct: false),
@@ -48,7 +44,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Madrid', correct: false),
   ),
   Quiz(
-    id: 3,
     level: 1,
     question: 'Who wrote the novel "War and Peace"?',
     answer1: Answer(title: 'Fyodor Dostoevsky', correct: false),
@@ -57,7 +52,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Alexander Pushkin', correct: false),
   ),
   Quiz(
-    id: 4,
     level: 1,
     question: 'What is the primary source of energy for Earth?',
     answer1: Answer(title: 'Wind', correct: false),
@@ -66,7 +60,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Hydropower', correct: false),
   ),
   Quiz(
-    id: 5,
     level: 1,
     question: 'Which ocean is the largest?',
     answer1: Answer(title: 'Atlantic Ocean', correct: false),
@@ -75,7 +68,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Pacific Ocean', correct: true),
   ),
   Quiz(
-    id: 6,
     level: 1,
     question: 'How many continents are there on Earth?',
     answer1: Answer(title: '5', correct: false),
@@ -84,7 +76,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: '8', correct: false),
   ),
   Quiz(
-    id: 7,
     level: 1,
     question: 'What color are bananas when they are ripe?',
     answer1: Answer(title: 'Red', correct: false),
@@ -93,7 +84,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Blue', correct: false),
   ),
   Quiz(
-    id: 8,
     level: 1,
     question: 'Which animal is known as "man\'s best friend"?',
     answer1: Answer(title: 'Cat', correct: false),
@@ -104,7 +94,6 @@ List<Quiz> quizes = [
 
   // 2
   Quiz(
-    id: 1,
     level: 2,
     question: 'Which planet is known as the Red Planet?',
     answer1: Answer(title: 'Venus', correct: false),
@@ -113,7 +102,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Saturn', correct: false),
   ),
   Quiz(
-    id: 2,
     level: 2,
     question: 'What is the chemical symbol for water?',
     answer1: Answer(title: 'CO2', correct: false),
@@ -122,7 +110,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'N2', correct: false),
   ),
   Quiz(
-    id: 3,
     level: 2,
     question: 'In which year did the Titanic sink?',
     answer1: Answer(title: '1912', correct: true),
@@ -131,7 +118,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: '1923', correct: false),
   ),
   Quiz(
-    id: 4,
     level: 2,
     question: 'What is the process by which plants make their food?',
     answer1: Answer(title: 'Respiration', correct: false),
@@ -140,7 +126,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Fermentation', correct: false),
   ),
   Quiz(
-    id: 5,
     level: 2,
     question: 'What is the freezing point of water?',
     answer1: Answer(title: '0 degrees Celsius', correct: true),
@@ -149,7 +134,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: '100 degrees Celsius', correct: false),
   ),
   Quiz(
-    id: 6,
     level: 2,
     question: 'Who was the first president of the United States?',
     answer1: Answer(title: 'Thomas Jefferson', correct: false),
@@ -158,7 +142,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'George Washington', correct: true),
   ),
   Quiz(
-    id: 7,
     level: 2,
     question: 'What is the largest planet in our solar system?',
     answer1: Answer(title: 'Earth', correct: false),
@@ -167,7 +150,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Saturn', correct: false),
   ),
   Quiz(
-    id: 8,
     level: 2,
     question: 'What is the main language spoken in Brazil?',
     answer1: Answer(title: 'Spanish', correct: false),
@@ -178,7 +160,6 @@ List<Quiz> quizes = [
 
   // 3
   Quiz(
-    id: 1,
     level: 3,
     question: 'Who painted the Mona Lisa?',
     answer1: Answer(title: 'Vincent van Gogh', correct: false),
@@ -187,7 +168,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Michelangelo', correct: false),
   ),
   Quiz(
-    id: 2,
     level: 3,
     question: 'What is the hardest natural substance on Earth?',
     answer1: Answer(title: 'Gold', correct: false),
@@ -196,7 +176,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Silver', correct: false),
   ),
   Quiz(
-    id: 3,
     level: 3,
     question: 'Which element has the chemical symbol "O"?',
     answer1: Answer(title: 'Gold', correct: false),
@@ -205,7 +184,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Helium', correct: false),
   ),
   Quiz(
-    id: 4,
     level: 3,
     question: 'Who was the first person to walk on the moon?',
     answer1: Answer(title: 'Buzz Aldrin', correct: false),
@@ -214,7 +192,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Michael Collins', correct: false),
   ),
   Quiz(
-    id: 5,
     level: 3,
     question: 'Which element has the atomic number 1?',
     answer1: Answer(title: 'Helium', correct: false),
@@ -223,7 +200,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Oxygen', correct: false),
   ),
   Quiz(
-    id: 6,
     level: 3,
     question: 'Who discovered penicillin?',
     answer1: Answer(title: 'Marie Curie', correct: false),
@@ -232,7 +208,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Gregor Mendel', correct: false),
   ),
   Quiz(
-    id: 7,
     level: 3,
     question: 'What is the capital of Japan?',
     answer1: Answer(title: 'Seoul', correct: false),
@@ -241,7 +216,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Bangkok', correct: false),
   ),
   Quiz(
-    id: 8,
     level: 3,
     question: 'What is the smallest prime number?',
     answer1: Answer(title: '0', correct: false),
@@ -252,7 +226,6 @@ List<Quiz> quizes = [
 
   // 4
   Quiz(
-    id: 1,
     level: 4,
     question: 'What is the capital of Australia?',
     answer1: Answer(title: 'Sydney', correct: false),
@@ -261,7 +234,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Brisbane', correct: false),
   ),
   Quiz(
-    id: 2,
     level: 4,
     question: 'Which gas do plants absorb from the atmosphere?',
     answer1: Answer(title: 'Nitrogen', correct: false),
@@ -270,7 +242,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Hydrogen', correct: false),
   ),
   Quiz(
-    id: 3,
     level: 4,
     question: 'In what year did World War II end?',
     answer1: Answer(title: '1941', correct: false),
@@ -279,7 +250,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: '1939', correct: false),
   ),
   Quiz(
-    id: 4,
     level: 4,
     question: 'Which organ in the human body is responsible for pumping blood?',
     answer1: Answer(title: 'Brain', correct: false),
@@ -288,7 +258,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Heart', correct: true),
   ),
   Quiz(
-    id: 5,
     level: 4,
     question: 'What is the currency of the United Kingdom?',
     answer1: Answer(title: 'Euro', correct: false),
@@ -297,7 +266,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Yen', correct: false),
   ),
   Quiz(
-    id: 6,
     level: 4,
     question: 'Who wrote "Hamlet"?',
     answer1: Answer(title: 'Charles Dickens', correct: false),
@@ -306,7 +274,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Jane Austen', correct: false),
   ),
   Quiz(
-    id: 7,
     level: 4,
     question: 'What is the longest river in the world?',
     answer1: Answer(title: 'Amazon River', correct: false),
@@ -315,7 +282,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Yangtze River', correct: false),
   ),
   Quiz(
-    id: 8,
     level: 4,
     question: 'What is the main ingredient in traditional Japanese miso soup?',
     answer1: Answer(title: 'Rice', correct: false),
@@ -326,7 +292,6 @@ List<Quiz> quizes = [
 
   // 5
   Quiz(
-    id: 1,
     level: 5,
     question: 'What is the smallest unit of life?',
     answer1: Answer(title: 'Atom', correct: false),
@@ -335,7 +300,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Organ', correct: false),
   ),
   Quiz(
-    id: 2,
     level: 5,
     question: 'Who developed the theory of relativity?',
     answer1: Answer(title: 'Isaac Newton', correct: false),
@@ -344,7 +308,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Stephen Hawking', correct: false),
   ),
   Quiz(
-    id: 3,
     level: 5,
     question: 'What is the chemical formula for table salt?',
     answer1: Answer(title: 'NaCl', correct: true),
@@ -353,7 +316,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Na2SO4', correct: false),
   ),
   Quiz(
-    id: 4,
     level: 5,
     question: 'What is the most abundant gas in the Earth\'s atmosphere?',
     answer1: Answer(title: 'Oxygen', correct: false),
@@ -362,7 +324,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Argon', correct: false),
   ),
   Quiz(
-    id: 5,
     level: 5,
     question:
         'Which physicist is known for his work on black holes and authored "A Brief History of Time"?',
@@ -372,7 +333,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Niels Bohr', correct: false),
   ),
   Quiz(
-    id: 6,
     level: 5,
     question: 'What is the SI unit of electric current?',
     answer1: Answer(title: 'Volt', correct: false),
@@ -381,7 +341,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Watt', correct: false),
   ),
   Quiz(
-    id: 7,
     level: 5,
     question: 'Who composed the opera "The Magic Flute"?',
     answer1: Answer(title: 'Ludwig van Beethoven', correct: false),
@@ -390,7 +349,6 @@ List<Quiz> quizes = [
     answer4: Answer(title: 'Franz Schubert', correct: false),
   ),
   Quiz(
-    id: 8,
     level: 5,
     question: 'What is the main constituent of natural gas?',
     answer1: Answer(title: 'Ethane', correct: false),

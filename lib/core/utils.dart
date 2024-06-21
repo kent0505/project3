@@ -26,19 +26,22 @@ bool getCurrent(int current) {
   return current >= level;
 }
 
-int earnedCoins = 0;
-void addCoins(bool correct) {
+Future<void> changeCoins(bool correct) async {
+  final prefs = await SharedPreferences.getInstance();
   if (correct) {
-    earnedCoins = earnedCoins + 10;
+    coins = coins + 10;
   } else {
-    earnedCoins = earnedCoins - 10;
+    coins = coins - 10;
   }
-  log(earnedCoins.toString());
+  log(coins.toString());
+  await prefs.setInt('coins', coins);
+  await checkLevel();
 }
 
-Future<void> saveCoins() async {
+Future<void> checkLevel() async {
   final prefs = await SharedPreferences.getInstance();
-  coins = coins + earnedCoins;
-  earnedCoins = 0;
-  await prefs.setInt('coins', coins);
+  if (coins >= 250) level = 3;
+  if (coins >= 300) level = 4;
+  if (coins >= 350) level = 5;
+  await prefs.setInt('level', level);
 }
