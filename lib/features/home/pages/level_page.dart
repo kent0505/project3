@@ -14,83 +14,81 @@ class LevelPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Stack(
-          fit: StackFit.expand,
-          children: [
-            const BgImage(),
-            // Image.asset(
-            //   'assets/icons/bg1.png',
-            //   fit: BoxFit.cover,
-            // ),
-            Column(
-              children: [
-                const SizedBox(height: 58),
-                const ArrowBackButton(),
-                const SizedBox(height: 27),
-                Container(
-                  height: 45,
-                  width: 174,
-                  decoration: BoxDecoration(
-                    color: const Color(0xff2D034F),
-                    borderRadius: BorderRadius.circular(40),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      'Levels',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w900,
-                      ),
+    return Scaffold(
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          const BgImage(),
+          // Image.asset(
+          //   'assets/icons/bg1.png',
+          //   fit: BoxFit.cover,
+          // ),
+          Column(
+            children: [
+              const SizedBox(height: 58),
+              const ArrowBackButton(),
+              const SizedBox(height: 27),
+              Container(
+                height: 45,
+                width: 174,
+                decoration: BoxDecoration(
+                  color: const Color(0xff2D034F),
+                  borderRadius: BorderRadius.circular(40),
+                ),
+                child: const Center(
+                  child: Text(
+                    'Levels',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w900,
                     ),
                   ),
                 ),
-                const SizedBox(height: 15),
-                BlocBuilder<QuizBloc, QuizState>(
-                  builder: (context, state) {
-                    return Wrap(
-                      runSpacing: 15,
-                      spacing: 15,
-                      children: [
-                        _LevelButton(
-                          level: 1,
-                          price: 100,
-                          current: getCurrent(1),
-                        ),
-                        _LevelButton(
-                          level: 2,
-                          price: 200,
-                          locked: getLocked(2),
-                          current: getCurrent(2),
-                        ),
-                        _LevelButton(
-                          level: 3,
-                          price: 250,
-                          locked: getLocked(3),
-                          current: getCurrent(3),
-                        ),
-                        _LevelButton(
-                          level: 4,
-                          price: 300,
-                          locked: getLocked(4),
-                          current: getCurrent(4),
-                        ),
-                        _LevelButton(
-                          level: 5,
-                          price: 350,
-                          locked: getLocked(5),
-                          current: getCurrent(5),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-              ],
-            ),
-          ],
-        ),
+              ),
+              const SizedBox(height: 15),
+              BlocBuilder<QuizBloc, QuizState>(
+                builder: (context, state) {
+                  return Wrap(
+                    runSpacing: 15,
+                    spacing: 15,
+                    children: [
+                      _LevelButton(
+                        level: 1,
+                        price: 100,
+                        current: getCurrent(1),
+                      ),
+                      _LevelButton(
+                        level: 2,
+                        price: 200,
+                        locked: getLocked(2),
+                        current: getCurrent(2),
+                      ),
+                      _LevelButton(
+                        level: 3,
+                        price: 250,
+                        locked: getLocked(3),
+                        current: getCurrent(3),
+                      ),
+                      _LevelButton(
+                        level: 4,
+                        price: 300,
+                        locked: getLocked(4),
+                        current: getCurrent(4),
+                      ),
+                      _LevelButton(
+                        level: 5,
+                        price: 350,
+                        locked: getLocked(5),
+                        current: getCurrent(5),
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

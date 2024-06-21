@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quiz_test/core/utils.dart';
 
 import '../models/quiz.dart';
 
@@ -9,6 +8,7 @@ part 'quiz_state.dart';
 
 class QuizBloc extends Bloc<QuizEvent, QuizState> {
   int id = 0;
+  int coinsState = coins;
   List<Quiz> sortedQuizes = [];
 
   QuizBloc() : super(QuizInitial()) {
@@ -20,21 +20,13 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
           sortedQuizes.add(quiz);
         }
       }
-      log('LoadedQuizState');
       emit(LoadedQuizState(quiz: sortedQuizes[id]));
     });
 
     on<NextQuizEvent>((event, emit) {
       id = id + 1;
-      if (id <= 7) {
-        log('LoadedQuizState');
-        emit(LoadedQuizState(quiz: sortedQuizes[id]));
-      }
-
-      if (id == 8) {
-        log('FinishedQuizState');
-        emit(FinishedQuizState());
-      }
+      if (id <= 7) emit(LoadedQuizState(quiz: sortedQuizes[id]));
+      if (id == 8) emit(FinishedQuizState());
     });
   }
 }

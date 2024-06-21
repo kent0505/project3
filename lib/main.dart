@@ -31,8 +31,8 @@ class MyApp extends StatelessWidget {
 
 
 // flutter build apk --split-per-abi
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await SystemChrome.setPreferredOrientations([
-  //   DeviceOrientation.portraitUp,
-  //   DeviceOrientation.portraitDown,
-  // ]);
+// WidgetsFlutterBinding.ensureInitialized();
+// await SystemChrome.setPreferredOrientations([
+//   DeviceOrientation.portraitUp,
+//   DeviceOrientation.portraitDown,
+// ]);
