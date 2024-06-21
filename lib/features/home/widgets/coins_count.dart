@@ -3,10 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../core/utils.dart';
-import '../../quiz/bloc/quiz_bloc.dart';
+import '../bloc/home_bloc.dart';
 
 class CoinsCount extends StatelessWidget {
-  const CoinsCount({super.key});
+  const CoinsCount({super.key, this.coin = 0});
+
+  final int coin;
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +30,10 @@ class CoinsCount extends StatelessWidget {
               child: Row(
                 children: [
                   const Spacer(),
-                  BlocBuilder<QuizBloc, QuizState>(
+                  BlocBuilder<HomeBloc, HomeState>(
                     builder: (context, state) {
                       return Text(
-                        '$coins',
+                        coin != 0 ? '$coin' : '$coins',
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 16,

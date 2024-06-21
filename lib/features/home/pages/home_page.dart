@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/config/app_colors.dart';
+import '../bloc/home_bloc.dart';
 import '../widgets/coins_count.dart';
 import '../widgets/menu_button.dart';
 import '../widgets/play_button.dart';
@@ -60,6 +62,7 @@ class HomePage extends StatelessWidget {
                 PlayButton(
                   onPressed: () {
                     context.push('/home/level');
+                    context.read<HomeBloc>().add(GetCoinsEvent());
                   },
                 ),
                 const SizedBox(height: 20),

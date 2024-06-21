@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/utils.dart';
 import '../../../core/widgets/bg_image.dart';
+import '../../home/bloc/home_bloc.dart';
 import '../../home/widgets/arrow_back_button.dart';
 import '../bloc/quiz_bloc.dart';
 import '../models/quiz.dart';
@@ -58,7 +59,7 @@ class _QuizPageState extends State<QuizPage> {
     color3 = const Color(0xff2D034F);
     color4 = const Color(0xff2D034F);
     if (last) {
-      context.pop();
+      context.go('/home/level/spinner');
     } else {
       canTap = true;
     }
@@ -105,6 +106,7 @@ class _QuizPageState extends State<QuizPage> {
         listener: (context, state) {
           if (state is LoadedQuizState) {
             setDefault(false);
+            context.read<HomeBloc>().add(GetCoinsEvent());
           }
 
           if (state is FinishedQuizState) {

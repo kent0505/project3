@@ -1,4 +1,6 @@
 import 'package:go_router/go_router.dart';
+import 'package:quiz_test/features/quiz/pages/spinner_page.dart';
+import 'package:quiz_test/features/quiz/pages/win_page.dart';
 
 import '../../features/home/pages/level_page.dart';
 import '../../features/home/pages/rules_page.dart';
@@ -27,6 +29,16 @@ final routerConfig = GoRouter(
               path: 'quiz',
               builder: (context, state) => QuizPage(
                 level: state.extra as int,
+              ),
+            ),
+            GoRoute(
+              path: 'spinner',
+              builder: (context, state) => const SpinnerPage(),
+            ),
+            GoRoute(
+              path: 'win',
+              builder: (context, state) => WinPage(
+                coin: state.extra as int,
               ),
             ),
           ],
