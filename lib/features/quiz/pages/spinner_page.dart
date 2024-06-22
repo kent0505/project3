@@ -71,10 +71,13 @@ class _SpinnerPageState extends State<SpinnerPage> {
       body: Stack(
         children: [
           Container(
+            color: const Color(0xff2F0D24).withOpacity(0.7),
+          ),
+          Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/icons/ellipse.png'),
-                fit: BoxFit.contain,
+                fit: BoxFit.fitWidth,
               ),
             ),
           ),
@@ -87,23 +90,23 @@ class _SpinnerPageState extends State<SpinnerPage> {
             ),
           ),
           Container(
-            color: const Color(0xff2F0D24).withOpacity(0.7),
-          ),
-          Container(
-            color: Colors.black.withOpacity(0.6),
+            color: Colors.black.withOpacity(0.7),
           ),
           Column(
             children: [
               const SizedBox(height: 58),
               const ArrowBackButton(),
               const SizedBox(height: 10),
-              Row(
-                children: [
-                  Image.asset(
-                    'assets/icons/man2.png',
-                    height: 260,
-                  ),
-                ],
+              SizedBox(
+                width: 370,
+                child: Row(
+                  children: [
+                    Image.asset(
+                      'assets/icons/man2.png',
+                      height: 260,
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

@@ -111,7 +111,7 @@ Future<void> changeSec(int sec) async {
     await prefs.setInt('coins', coins);
     await prefs.setBool('sec15', true);
   }
-  if (sec == 20 && !sec20 && coins >= 150) {
+  if (sec == 20 && !sec20 && coins >= 250) {
     sec20 = true;
     timerSec = timerSec + 20;
     coins = coins - 250;

@@ -19,10 +19,13 @@ class WinPage extends StatelessWidget {
       body: Stack(
         children: [
           Container(
+            color: const Color(0xff2F0D24).withOpacity(0.7),
+          ),
+          Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/icons/ellipse.png'),
-                fit: BoxFit.contain,
+                fit: BoxFit.fitWidth,
               ),
             ),
           ),
@@ -35,11 +38,30 @@ class WinPage extends StatelessWidget {
             ),
           ),
           Container(
-            color: const Color(0xff2F0D24).withOpacity(0.7),
+            color: Colors.black.withOpacity(0.7),
           ),
-          Container(
-            color: Colors.black.withOpacity(0.6),
-          ),
+          // Container(
+          //   decoration: const BoxDecoration(
+          //     image: DecorationImage(
+          //       image: AssetImage('assets/icons/ellipse.png'),
+          //       fit: BoxFit.contain,
+          //     ),
+          //   ),
+          // ),
+          // Container(
+          //   decoration: const BoxDecoration(
+          //     image: DecorationImage(
+          //       image: AssetImage('assets/icons/ellipse2.png'),
+          //       fit: BoxFit.fitWidth,
+          //     ),
+          //   ),
+          // ),
+          // Container(
+          //   color: const Color(0xff2F0D24).withOpacity(0.7),
+          // ),
+          // Container(
+          //   color: Colors.black.withOpacity(0.6),
+          // ),
           Column(
             children: [
               Expanded(flex: 1, child: Container()),

@@ -19,10 +19,13 @@ class ShopRules extends StatelessWidget {
     return Stack(
       children: [
         Container(
+          color: const Color(0xff2F0D24).withOpacity(0.7),
+        ),
+        Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/icons/ellipse.png'),
-              fit: BoxFit.contain,
+              fit: BoxFit.fitWidth,
             ),
           ),
         ),
@@ -35,10 +38,7 @@ class ShopRules extends StatelessWidget {
           ),
         ),
         Container(
-          color: const Color(0xff2F0D24).withOpacity(0.7),
-        ),
-        Container(
-          color: Colors.black.withOpacity(0.6),
+          color: Colors.black.withOpacity(0.7),
         ),
         Center(
           child: SizedBox(
