@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/config/router.dart';
@@ -7,6 +8,11 @@ import 'features/home/bloc/home_bloc.dart';
 import 'features/quiz/bloc/quiz_bloc.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(const MyApp());
 }
 
@@ -31,8 +37,4 @@ class MyApp extends StatelessWidget {
 
 
 // flutter build apk --split-per-abi
-// WidgetsFlutterBinding.ensureInitialized();
-// await SystemChrome.setPreferredOrientations([
-//   DeviceOrientation.portraitUp,
-//   DeviceOrientation.portraitDown,
-// ]);
+

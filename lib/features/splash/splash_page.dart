@@ -18,7 +18,7 @@ class _SplashPageState extends State<SplashPage> {
   void _init() async {
     await getData().then(
       (value) {
-        Future.delayed(const Duration(seconds: 3), () {
+        Future.delayed(const Duration(seconds: 2), () {
           context.go('/home');
         });
         Future.delayed(const Duration(milliseconds: 500), () {
@@ -80,7 +80,7 @@ class _SplashPageState extends State<SplashPage> {
                       ),
                     ),
                     AnimatedContainer(
-                      duration: const Duration(seconds: 2),
+                      duration: const Duration(seconds: 1),
                       height: 4,
                       margin: const EdgeInsets.all(2),
                       width: loaded ? 182 : 0,
