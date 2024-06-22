@@ -35,8 +35,8 @@ Future<void> getData() async {
   final prefs = await SharedPreferences.getInstance();
   // await resetAll();
   level = prefs.getInt('level') ?? 1;
-  coins = prefs.getInt('coins') ?? 1150;
-  timerSec = prefs.getInt('timerSec') ?? 10;
+  coins = prefs.getInt('coins') ?? 150;
+  timerSec = prefs.getInt('timerSec') ?? 60;
   bgId = prefs.getInt('bgId') ?? 1;
   sec5 = prefs.getBool('sec5') ?? false;
   sec10 = prefs.getBool('sec10') ?? false;
