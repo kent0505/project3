@@ -56,6 +56,7 @@ class _SplashPageState extends State<SplashPage> {
                   child: Container(),
                 ),
                 Container(
+                  height: 292,
                   margin: const EdgeInsets.symmetric(horizontal: 26),
                   alignment: Alignment.center,
                   child: SvgPicture.asset('assets/icons/logo.svg'),
