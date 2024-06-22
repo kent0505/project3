@@ -2,16 +2,18 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import '../utils.dart';
+
 class BgImage extends StatelessWidget {
   const BgImage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
           // image: AssetImage('assets/icons/bg$bgID.png'),
-          image: AssetImage('assets/icons/bg1.png'),
+          image: AssetImage('assets/icons/bg$bgId.png'),
           fit: BoxFit.fitHeight,
           alignment: Alignment.centerLeft,
         ),

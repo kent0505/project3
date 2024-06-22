@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:quiz_test/features/home/bloc/home_bloc.dart';
 
+import '../../../core/utils.dart';
 import '../widgets/coins_count.dart';
 import '../widgets/shop_rules.dart';
 
@@ -11,80 +14,129 @@ class ShopPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ShopRules(
-        title: 'Shop',
-        children: [
-          const SizedBox(height: 10),
-          const CoinsCount(),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: BlocBuilder<HomeBloc, HomeState>(
+        builder: (context, state) {
+          return ShopRules(
+            title: 'Shop',
             children: [
-              ShopSecItem(
-                sec: 5,
-                price: 50,
-                onPressed: () {},
+              const SizedBox(height: 10),
+              const CoinsCount(),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ShopSecItem(
+                    sec: 5,
+                    price: 50,
+                    bought: sec5,
+                    onPressed: () async {
+                      await changeSec(5).then((value) {
+                        context.read<HomeBloc>().add(GetCoinsEvent());
+                      });
+                    },
+                  ),
+                  ShopSecItem(
+                    sec: 10,
+                    price: 100,
+                    bought: sec10,
+                    onPressed: () async {
+                      await changeSec(10).then((value) {
+                        context.read<HomeBloc>().add(GetCoinsEvent());
+                      });
+                    },
+                  ),
+                  ShopSecItem(
+                    sec: 15,
+                    price: 150,
+                    bought: sec15,
+                    onPressed: () async {
+                      await changeSec(15).then((value) {
+                        context.read<HomeBloc>().add(GetCoinsEvent());
+                      });
+                    },
+                  ),
+                ],
               ),
-              ShopSecItem(
-                sec: 10,
-                price: 100,
-                onPressed: () {},
+              const SizedBox(height: 27),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ShopSecItem(
+                    sec: 20,
+                    price: 250,
+                    bought: sec20,
+                    onPressed: () async {
+                      await changeSec(20).then((value) {
+                        context.read<HomeBloc>().add(GetCoinsEvent());
+                      });
+                    },
+                  ),
+                  ShopBgItem(
+                    bgID: 1,
+                    price: 300,
+                    bought: true,
+                    currentBg: bgId == 1,
+                    onPressed: () async {
+                      await changeBackground(1).then((value) {
+                        context.read<HomeBloc>().add(GetCoinsEvent());
+                      });
+                    },
+                  ),
+                  ShopBgItem(
+                    bgID: 2,
+                    price: 300,
+                    bought: bg2,
+                    currentBg: bgId == 2,
+                    onPressed: () async {
+                      await changeBackground(2).then((value) {
+                        context.read<HomeBloc>().add(GetCoinsEvent());
+                      });
+                    },
+                  ),
+                ],
               ),
-              ShopSecItem(
-                sec: 15,
-                price: 150,
-                onPressed: () {},
+              const SizedBox(height: 27),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ShopBgItem(
+                    bgID: 3,
+                    price: 350,
+                    bought: bg3,
+                    currentBg: bgId == 3,
+                    onPressed: () async {
+                      await changeBackground(3).then((value) {
+                        context.read<HomeBloc>().add(GetCoinsEvent());
+                      });
+                    },
+                  ),
+                  ShopBgItem(
+                    bgID: 4,
+                    price: 450,
+                    bought: bg4,
+                    currentBg: bgId == 4,
+                    onPressed: () async {
+                      await changeBackground(4).then((value) {
+                        context.read<HomeBloc>().add(GetCoinsEvent());
+                      });
+                    },
+                  ),
+                  ShopBgItem(
+                    bgID: 5,
+                    price: 500,
+                    bought: bg5,
+                    currentBg: bgId == 5,
+                    onPressed: () async {
+                      await changeBackground(5).then((value) {
+                        context.read<HomeBloc>().add(GetCoinsEvent());
+                      });
+                    },
+                  ),
+                ],
               ),
             ],
-          ),
-          const SizedBox(height: 27),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              ShopSecItem(
-                sec: 20,
-                price: 250,
-                onPressed: () {},
-              ),
-              ShopBgItem(
-                bgID: 1,
-                price: 300,
-                bought: true,
-                onPressed: () async {},
-              ),
-              ShopBgItem(
-                bgID: 2,
-                price: 300,
-                bought: false,
-                onPressed: () async {},
-              ),
-            ],
-          ),
-          const SizedBox(height: 27),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              ShopBgItem(
-                bgID: 3,
-                price: 350,
-                bought: false,
-                onPressed: () async {},
-              ),
-              ShopBgItem(
-                bgID: 4,
-                price: 450,
-                bought: false,
-                onPressed: () async {},
-              ),
-              ShopBgItem(
-                bgID: 5,
-                price: 500,
-                bought: false,
-                onPressed: () async {},
-              ),
-            ],
-          ),
-        ],
+          );
+        },
       ),
     );
   }
@@ -95,11 +147,13 @@ class ShopSecItem extends StatelessWidget {
     super.key,
     required this.sec,
     required this.price,
+    required this.bought,
     required this.onPressed,
   });
 
   final int sec;
   final int price;
+  final bool bought;
   final void Function() onPressed;
 
   @override
@@ -130,7 +184,9 @@ class ShopSecItem extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 2),
-        SvgPicture.asset('assets/icons/${price}coins.svg'),
+        bought
+            ? const SizedBox(height: 26)
+            : SvgPicture.asset('assets/icons/${price}coins.svg'),
       ],
     );
   }
@@ -142,12 +198,14 @@ class ShopBgItem extends StatelessWidget {
     required this.bgID,
     required this.price,
     required this.bought,
+    required this.currentBg,
     required this.onPressed,
   });
 
   final int bgID;
   final int price;
   final bool bought;
+  final bool currentBg;
   final void Function() onPressed;
 
   @override
@@ -171,7 +229,17 @@ class ShopBgItem extends StatelessWidget {
         ),
         const SizedBox(height: 2),
         bought
-            ? const SizedBox(height: 26)
+            ? SizedBox(
+                height: 26,
+                child: Center(
+                  child: currentBg
+                      ? const Icon(
+                          Icons.check_rounded,
+                          color: Colors.white,
+                        )
+                      : Container(),
+                ),
+              )
             : SvgPicture.asset('assets/icons/${price}coins.svg'),
       ],
     );
