@@ -4,7 +4,7 @@ import 'package:quiz_test/features/quiz/pages/win_page.dart';
 
 import '../../features/home/pages/level_page.dart';
 import '../../features/home/pages/rules_page.dart';
-import '../../features/home/pages/shop_page.dart';
+import '../../features/shop/pages/shop_page.dart';
 import '../../features/quiz/pages/instruct_page.dart';
 import '../../features/quiz/pages/quiz_page.dart';
 import '../../features/splash/splash_page.dart';

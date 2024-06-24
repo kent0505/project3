@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:quiz_test/features/home/bloc/home_bloc.dart';
 
 import '../../../core/utils.dart';
-import '../widgets/coins_count.dart';
-import '../widgets/shop_rules.dart';
+import '../../home/bloc/home_bloc.dart';
+import '../../home/widgets/coins_count.dart';
+import '../../home/widgets/shop_rules.dart';
 
 class ShopPage extends StatelessWidget {
   const ShopPage({super.key});
@@ -25,7 +25,7 @@ class ShopPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ShopSecItem(
+                  _ShopSecItem(
                     sec: 5,
                     price: 50,
                     bought: sec5,
@@ -35,7 +35,7 @@ class ShopPage extends StatelessWidget {
                       });
                     },
                   ),
-                  ShopSecItem(
+                  _ShopSecItem(
                     sec: 10,
                     price: 100,
                     bought: sec10,
@@ -45,7 +45,7 @@ class ShopPage extends StatelessWidget {
                       });
                     },
                   ),
-                  ShopSecItem(
+                  _ShopSecItem(
                     sec: 15,
                     price: 150,
                     bought: sec15,
@@ -61,7 +61,7 @@ class ShopPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ShopSecItem(
+                  _ShopSecItem(
                     sec: 20,
                     price: 250,
                     bought: sec20,
@@ -71,7 +71,7 @@ class ShopPage extends StatelessWidget {
                       });
                     },
                   ),
-                  ShopBgItem(
+                  _ShopBgItem(
                     bgID: 1,
                     price: 300,
                     bought: true,
@@ -82,7 +82,7 @@ class ShopPage extends StatelessWidget {
                       });
                     },
                   ),
-                  ShopBgItem(
+                  _ShopBgItem(
                     bgID: 2,
                     price: 300,
                     bought: bg2,
@@ -99,7 +99,7 @@ class ShopPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ShopBgItem(
+                  _ShopBgItem(
                     bgID: 3,
                     price: 350,
                     bought: bg3,
@@ -110,7 +110,7 @@ class ShopPage extends StatelessWidget {
                       });
                     },
                   ),
-                  ShopBgItem(
+                  _ShopBgItem(
                     bgID: 4,
                     price: 450,
                     bought: bg4,
@@ -121,7 +121,7 @@ class ShopPage extends StatelessWidget {
                       });
                     },
                   ),
-                  ShopBgItem(
+                  _ShopBgItem(
                     bgID: 5,
                     price: 500,
                     bought: bg5,
@@ -142,9 +142,8 @@ class ShopPage extends StatelessWidget {
   }
 }
 
-class ShopSecItem extends StatelessWidget {
-  const ShopSecItem({
-    super.key,
+class _ShopSecItem extends StatelessWidget {
+  const _ShopSecItem({
     required this.sec,
     required this.price,
     required this.bought,
@@ -163,9 +162,12 @@ class ShopSecItem extends StatelessWidget {
         CupertinoButton(
           onPressed: onPressed,
           padding: EdgeInsets.zero,
-          child: SizedBox(
+          child: Container(
             width: 84,
             height: 84,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(42),
+            ),
             child: Stack(
               children: [
                 SvgPicture.asset('assets/icons/sec_bg.svg'),
@@ -192,9 +194,8 @@ class ShopSecItem extends StatelessWidget {
   }
 }
 
-class ShopBgItem extends StatelessWidget {
-  const ShopBgItem({
-    super.key,
+class _ShopBgItem extends StatelessWidget {
+  const _ShopBgItem({
     required this.bgID,
     required this.price,
     required this.bought,
